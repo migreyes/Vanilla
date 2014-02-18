@@ -90,7 +90,7 @@ namespace :view do
   task :xip do
     ip = `ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | awk '{ printf "%s", $0 }'`
     url = "http://#{url_pow}.#{ip}.xip.io/"
-    puts "Opening #{url}…"
+    puts "Opening #{url}..."
     system "open #{url}"
   end
 
@@ -99,10 +99,10 @@ namespace :view do
     system "open http://github.com/#{github_repo}"
   end
 
-  desc "A quick glimpse at your GitHub repo’s watchers, stars, and forks."
+  desc "A quick glimpse at your GitHub repo's watchers, stars, and forks."
   namespace :github do
     task :stats do
-      puts "Downloading GitHub repo data through their API…"
+      puts "Downloading GitHub repo data through their API..."
       json = `curl https://api.github.com/repos/#{github_repo}`
       repo = JSON.parse(json)
       puts ""
